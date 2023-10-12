@@ -42,7 +42,13 @@ $(document).ready(function () {
  
 
 
-
+    $(document).ready(function () {
+        // Show forgot password modal when the "Forgot Password" link is clicked
+        $('#forgot-password-link').click(function () {
+            $('#loginModal').modal('hide');  // Hide login modal
+            $('#forgotPasswordModal').modal('show');  // Show forgot password modal
+        });
+    });
 
 
 
