@@ -93,10 +93,10 @@
                                 <input type="password" class="form-control" id="password" placeholder="กรอกรหัสผ่านของคุณ">
                             </div>
                             <button type="submit" class="btn btn-primary">เข้าสู่ระบบ</button>
-                            <div class="mt-2">
-                                <a href="#" id="forgotPasswordLink" type="button">ลืมรหัสผ่าน</a>
-                            
+                            <div class="modal-footer">
+                                <a href="#" id="forgot-password-link">ลืมรหัสผ่าน?</a>
                             </div>
+                            
                         </form>
                     </div>
                 </div>
@@ -104,32 +104,30 @@
         </div>
         
 
-        <div class="modal fade" id="forgotPasswordLink" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordLinkLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="forgotPasswordLinkLabel">เปลี่ยนรหัสผ่าน</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+<!-- ป็อปอัพลืมรหัสผ่าน -->
+<div class="modal fade" id="forgotPasswordModal" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="forgotPasswordModalLabel">ลืมรหัสผ่าน</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- เพิ่มฟอร์มลืมรหัสผ่านที่นี่ -->
+                <form>
+                    <div class="form-group">
+                        <label for="forgot-password-email">อีเมล</label>
+                        <input type="email" class="form-control" id="forgot-password-email" placeholder="กรอกอีเมลของคุณ">
                     </div>
-                    <div class="modal-body">
-                        <!-- เพิ่มฟอร์มล็อคอินของคุณที่นี่ -->
-                        <form>
-                            <div class="form-group">
-                                <label for="username">เปลี่ยนรหัสผ่าน</label>
-                                <input type="text" class="form-control" id="username" placeholder="กรอกชื่อผู้ใช้ของคุณ">
-                            </div>
-                            <div class="form-group">
-                                <label for="password">ยืนยันรหัสผ่าน</label>
-                                <input type="password" class="form-control" id="password" placeholder="กรอกรหัสผ่านของคุณ">
-                            </div>
-                            <button type="submit" class="btn btn-primary">เปลี่ยน</button>
-                        </form>
-                    </div>
-                </div>
+                    <button type="submit" class="btn btn-primary">ส่งคำขอรีเซ็ตรหัสผ่าน</button>
+                </form>
             </div>
         </div>
+    </div>
+</div>
+
         
 
 
@@ -205,15 +203,16 @@
                 </a>
                 <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
                     <div class="navbar-nav w-100">
-                        <a href="" class="nav-item nav-link">Shirts</a>
-                        <a href="" class="nav-item nav-link">Jeans</a>
+                        <a href="shirt.html" class="nav-item nav-link">Shirts</a>
+                        <a href="Jeans.html" class="nav-item nav-link">Jeans</a>
                         <a href="" class="nav-item nav-link">Swimwear</a>
-                        <a href="" class="nav-item nav-link">Sleepwear</a>
+                        <a href="Sleepwear.html" class="nav-item nav-link">Sleepwear</a>
                         <a href="" class="nav-item nav-link">Sportswear</a>
                         <a href="" class="nav-item nav-link">Jumpsuits</a>
                         <a href="" class="nav-item nav-link">Blazers</a>
                         <a href="" class="nav-item nav-link">Jackets</a>
-                        <a href="" class="nav-item nav-link">Shoes</a>
+                        <a href="Shoes.html" class="nav-item nav-link">Shoes</a>
+
                     </div>
                 </nav>
             </div>
