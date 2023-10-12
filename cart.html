@@ -66,12 +66,131 @@
                 <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button">Sign in</button>
-                            <button class="dropdown-item" type="button">Sign up</button>
+                            <button class="dropdown-item dropdown-item-signin" type="button">Sign in</button>
+                            <button class="dropdown-item dropdown-item-signup" type="button">Sign up</button>
                         </div>
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginModalLabel">เข้าสู่ระบบ</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- เพิ่มฟอร์มล็อคอินของคุณที่นี่ -->
+                        <form>
+                            <div class="form-group">
+                                <label for="username">ชื่อผู้ใช้</label>
+                                <input type="text" class="form-control" id="username" placeholder="กรอกชื่อผู้ใช้ของคุณ">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">รหัสผ่าน</label>
+                                <input type="password" class="form-control" id="password" placeholder="กรอกรหัสผ่านของคุณ">
+                            </div>
+                            <button type="submit" class="btn btn-primary">เข้าสู่ระบบ</button>
+                            <div class="mt-2">
+                                <a href="#" id="forgotPasswordLink" type="button">ลืมรหัสผ่าน</a>
+                            
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="modal fade" id="forgotPasswordLink" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordLinkLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="forgotPasswordLinkLabel">เปลี่ยนรหัสผ่าน</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- เพิ่มฟอร์มล็อคอินของคุณที่นี่ -->
+                        <form>
+                            <div class="form-group">
+                                <label for="username">เปลี่ยนรหัสผ่าน</label>
+                                <input type="text" class="form-control" id="username" placeholder="กรอกชื่อผู้ใช้ของคุณ">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">ยืนยันรหัสผ่าน</label>
+                                <input type="password" class="form-control" id="password" placeholder="กรอกรหัสผ่านของคุณ">
+                            </div>
+                            <button type="submit" class="btn btn-primary">เปลี่ยน</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="signupModalLabel">สมัครใหม่</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- เพิ่มฟอร์มล็อคอินของคุณที่นี่ -->
+                        <form>
+                            <div class="form-group">
+                                <label for="signup-username">ชื่อผู้ใช้</label>
+                                <input type="text" class="form-control" id="signup-username" placeholder="กรอกชื่อผู้ใช้ของคุณ">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="signup-email">อีเมล</label>
+                                <input type="email" class="form-control" id="signup-email" placeholder="กรอกอีเมลของคุณ">
+                            </div>
+                            
+                            
+                            <div class="form-group">
+                                <label for="signup-password">รหัสผ่าน</label>
+                                <input type="password" class="form-control" id="signup-password" placeholder="กรอกรหัสผ่านของคุณ">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="signup-confirm-password">ยืนยันรหัสผ่าน</label>
+                                <input type="password" class="form-control" id="signup-confirm-password" placeholder="กรอกรหัสผ่านอีกครั้ง">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">สมัคร</button>
+                            
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        
+
+        
+        
+
     </div>
     <!-- Topbar End -->
 
@@ -399,6 +518,9 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <script src="java.js"></script>
+    
 </body>
 
 </html>
