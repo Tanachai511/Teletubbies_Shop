@@ -123,3 +123,27 @@ function isValidUser(username, password) {
 function showProfile() {
     window.location.href = 'profile.html';
 }
+
+
+// ใน function showCartSummary()
+function showCartSummary() {
+    // โค้ดที่มีอยู่เดิม...
+
+    let subtotal = 0;
+
+    // เพิ่มโค้ดด้านล่างนี้เพื่อคำนวณ Subtotal
+    for (let i = 0; i < cart.length; i++) {
+        const productPrice = cart[i].price;
+        subtotal += productPrice;
+    }
+
+    // แสดง Subtotal
+    document.getElementById('cart-subtotal').innerText = `฿${subtotal}`;
+    
+    // คำนวณและแสดง Total รวม Shipping
+    const total = subtotal + 30;
+    document.getElementById('cart-total').innerText = `฿${total}`;
+    
+    // โค้ดที่เหลือ...
+}
+
