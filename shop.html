@@ -63,12 +63,13 @@
                 </form>
             </div>
             <div class="col-lg-4 col-6 text-right">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <button class="dropdown-item dropdown-item-signin" type="button" onclick="showPopup()">Sign in</button>
-                        <button class="dropdown-item dropdown-item-signup" type="button" onclick="showRegisterForm()" id="signupBtn">Sign up</button>
-                    </div>
+                <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">
+                    <span id="loggedInUserSpan">My Account</span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="profile.html">My Profile</a>
+                    <button class="dropdown-item dropdown-item-signin" type="button" onclick="showPopup()">Sign in</button>
+                    <button class="dropdown-item" type="button" onclick="logout()">Logout</button>
                 </div>
             </div>
         </div>
@@ -81,7 +82,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <!-- เนื้อหาของ Bootstrap Modal Container -->
+                        <!-- Content of Bootstrap Modal Container -->
                         <div id="login-container">
                             <h2>Login</h2>
                             <form id="loginForm">
@@ -100,7 +101,6 @@
                         <div id="register-container" style="display: none;">
                             <h2>Register</h2>
                             <form id="registerForm">
-
                                 <label for="registerUsername">Username:</label>
                                 <input type="text" id="registerUsername" name="registerUsername" required>
 
@@ -128,26 +128,11 @@
                             </form>
                             <p>Remembered your password? <a href="#" onclick="showLoginForm()">Login here</a></p>
                         </div>
-
-                        <div id="reset-password-container" style="display: none;">
-                            <h2>Reset Password</h2>
-                            <form id="resetPasswordForm">
-                                <label for="newPassword">New Password:</label>
-                                <input type="password" id="newPassword" name="newPassword" required>
-
-                                <label for="confirmNewPassword">Confirm New Password:</label>
-                                <input type="password" id="confirmNewPassword" name="confirmNewPassword" required>
-
-                                <button type="button" class="btn btn-primary" onclick="resetPassword()">Reset Password</button>
-                            </form>
-                            <p>Remember your password? <a href="index.html">Login here</a></p>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 
 
 

@@ -24,8 +24,18 @@
             position: relative;
         }
 
-        .profile-info {
-            margin-bottom: 20px;
+        .profile-container a.btn {
+            color: #ffc107; /* สีเหลืองเข้ม */
+            border-color: #ffc107; /* สีเหลืองเข้ม */
+        }
+
+        .profile-container a.btn:hover {
+            background-color: #ffc107; /* สีเหลืองเข้ม */
+            color: #1b1e21; /* สีดำ */
+        }
+
+        .profile-container h2 {
+            color: #ffc107; /* สีเหลืองเข้ม */
         }
 
         .edit-btn {
@@ -98,14 +108,21 @@
 <body>
 
     <div class="profile-container">
+        <div class="row">
+            <div class="col">
+                <a href="index.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            </div>
+            <div class="col text-right">
+                <button class="edit-btn" onclick="enableEditMode()"><i class="fas fa-edit"></i> Edit</button>
+            </div>
+        </div>
         <h2 class="text-center mb-4">User Profile</h2>
-        <button class="edit-btn" onclick="enableEditMode()"><i class="fas fa-edit"></i> Edit</button>
         <div class="profile-info">
             <img src="path/to/profile-picture.jpg" alt="Profile Picture" class="profile-picture" id="profilePicture" onclick="chooseProfilePicture()">
             <input type="file" id="profilePictureInput" accept="image/*" onchange="displaySelectedImage(this)">
             <p><strong>Name:</strong> John Doe</p>
             <p><strong>Username:</strong> <span id="usernameDisplay">JohnDoe</span></p>
-            <p><strong>Email:</strong> johndoe@example.com</p>
+            <p><strong>Email:</strong> <span id="emailDisplay">johndoe@example.com</span></p>
             <p><strong>Phone:</strong> +1234567890</p>
             <p><strong>Address:</strong> 123 Street, City, Country</p>
             <p><strong>Gender:</strong> Male</p>
@@ -198,6 +215,8 @@
         function chooseProfilePicture() {
             document.getElementById('profilePictureInput').click();
         }
+
+        
     </script>
 
 </body>

@@ -8,14 +8,16 @@ function closePopup() {
     $('#popup-container').modal('hide');
 }
 
-function showRegisterForm() {
-    hideAllContainers();
-    $('#register-container').show();
-}
-
 function showLoginForm() {
     hideAllContainers();
     $('#login-container').show();
+    $('#loggedInUserSpan').text('My Account');
+}
+
+function showRegisterForm() {
+    hideAllContainers();
+    $('#register-container').show();
+    $('#loggedInUserSpan').text('My Account');
 }
 
 function showForgotPasswordForm() {
@@ -31,19 +33,31 @@ function hideAllContainers() {
 }
 
 function login() {
-    var username = $('#loginUsername').val();
-    var password = $('#loginPassword').val();
+    var username = document.getElementById('loginUsername').value;
+    var password = document.getElementById('loginPassword').value;
 
     var user = users[username];
 
     if (user && user.password === password) {
         alert("Login successful!");
-        $('#popup-container').modal('hide');
-        window.location.href = 'dashboard.html'; 
+
+        // บันทึกข้อมูลผู้ใช้ที่ Login ลง sessionStorage
+        var loggedInUser = { username: username, email: "example@example.com" };
+        sessionStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+
+        // ปิด Popup
+        closePopup();
+
+        // อัพเดทชื่อใน My Account
+        updateLoggedInUserName();
+
+        // ไปที่หน้าหลัก
+        window.location.href = 'index.html'; // หรือไปที่หน้าอื่นที่คุณต้องการ
     } else {
-        alert("Login failed. Please check your username and password.");
+        alert('Invalid username or password. Please try again.');
     }
 }
+
 
 function register() {
     var username = $('#registerUsername').val();
@@ -79,21 +93,33 @@ function sendResetEmail() {
     alert("Password reset instructions sent to " + email);
 }
 
-function showRegisterForm() {
-    hideAllContainers();
-    document.getElementById('register-container').style.display = 'flex';
-    showPopup();  // เรียกใช้ฟังก์ชัน showPopup เพื่อให้ Popup ป็อปอัพ
+function updateLoggedInUserName() {
+    var loggedInUserSpan = document.getElementById('loggedInUserSpan');
+    var loggedInUser = sessionStorage.getItem('loggedInUser');
+
+    if (loggedInUser) {
+        var user = JSON.parse(loggedInUser);
+        loggedInUserSpan.textContent = user.username; // เปลี่ยนที่นี่เพื่อให้แสดงชื่อผู้ใช้
+    }
 }
 
-function sendResetEmail() {
-    var email = document.getElementById("email").value;
-    // ตรวจสอบ email และส่งอีเมลรีเซ็ตรหัสผ่าน
-    // สามารถใช้ API หรือบริการส่งอีเมลต่าง ๆ ที่คุณมี
-    alert("Password reset instructions sent to " + email);
+function logout() {
+    sessionStorage.removeItem('loggedInUser');
+    updateLoggedInUserName();
+    $('#loggedInUserSpan').text('My Account'); // ตั้งค่าใหม่ที่นี่
+    window.location.href = 'index.html';
 }
 
-function showForgotPasswordForm() {
-    hideAllContainers();
-    document.getElementById('forgot-password-container').style.display = 'flex';
-    showPopup();  // เรียกใช้ฟังก์ชัน showPopup เพื่อให้ Popup ป็อปอัพ
+document.addEventListener('DOMContentLoaded', function () {
+    updateLoggedInUserName();
+});
+
+function isValidUser(username, password) {
+    // Replace this with your actual user validation logic
+    // For example, you might check against a backend or hardcoded credentials
+    return users[username] && users[username].password === password;
+}
+
+function showProfile() {
+    window.location.href = 'profile.html';
 }
