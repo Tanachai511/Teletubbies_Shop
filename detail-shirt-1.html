@@ -65,112 +65,88 @@
             <div class="col-lg-4 col-6 text-right">
                 <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item dropdown-item-signin" type="button">Sign in</button>
-                            <button class="dropdown-item dropdown-item-signup" type="button">Sign up</button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <button class="dropdown-item dropdown-item-signin" type="button" onclick="showPopup()">Sign in</button>
+                        <button class="dropdown-item dropdown-item-signup" type="button" onclick="showRegisterForm()" id="signupBtn">Sign up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="popup-container" tabindex="-1" role="dialog" aria-labelledby="popupLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closePopup()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- เนื้อหาของ Bootstrap Modal Container -->
+                        <div id="login-container">
+                            <h2>Login</h2>
+                            <form id="loginForm">
+                                <label for="loginUsername">Username:</label>
+                                <input type="text" id="loginUsername" name="loginUsername" required>
+
+                                <label for="loginPassword">Password:</label>
+                                <input type="password" id="loginPassword" name="loginPassword" required>
+
+                                <button type="button" class="btn btn-primary" onclick="login()">Login</button>
+                            </form>
+                            <p>Don't have an account? <a href="#" onclick="showRegisterForm()">Register here</a></p>
+                            <p>Forgot your password? <a href="#" onclick="showForgotPasswordForm()">Reset it here</a></p>
                         </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="loginModalLabel">เข้าสู่ระบบ</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- เพิ่มฟอร์มล็อคอินของคุณที่นี่ -->
-                        <form>
-                            <div class="form-group">
-                                <label for="username">ชื่อผู้ใช้</label>
-                                <input type="text" class="form-control" id="username" placeholder="กรอกชื่อผู้ใช้ของคุณ">
-                            </div>
-                            <div class="form-group">
-                                <label for="password">รหัสผ่าน</label>
-                                <input type="password" class="form-control" id="password" placeholder="กรอกรหัสผ่านของคุณ">
-                            </div>
-                            <button type="submit" class="btn btn-primary">เข้าสู่ระบบ</button>
-                            <div class="modal-footer">
-                                <a href="#" id="forgot-password-link">ลืมรหัสผ่าน?</a>
-                            </div>
-                            
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
 
-<!-- ป็อปอัพลืมรหัสผ่าน -->
-<div class="modal fade" id="forgotPasswordModal" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="forgotPasswordModalLabel">ลืมรหัสผ่าน</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- เพิ่มฟอร์มลืมรหัสผ่านที่นี่ -->
-                <form>
-                    <div class="form-group">
-                        <label for="forgot-password-email">อีเมล</label>
-                        <input type="email" class="form-control" id="forgot-password-email" placeholder="กรอกอีเมลของคุณ">
-                    </div>
-                    <button type="submit" class="btn btn-primary">ส่งคำขอรีเซ็ตรหัสผ่าน</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+                        <div id="register-container" style="display: none;">
+                            <h2>Register</h2>
+                            <form id="registerForm">
 
-        <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="signupModalLabel">สมัครใหม่</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- เพิ่มฟอร์มล็อคอินของคุณที่นี่ -->
-                        <form>
-                            <div class="form-group">
-                                <label for="signup-username">ชื่อผู้ใช้</label>
-                                <input type="text" class="form-control" id="signup-username" placeholder="กรอกชื่อผู้ใช้ของคุณ">
-                            </div>
+                                <label for="registerUsername">Username:</label>
+                                <input type="text" id="registerUsername" name="registerUsername" required>
 
-                            <div class="form-group">
-                                <label for="signup-email">อีเมล</label>
-                                <input type="email" class="form-control" id="signup-email" placeholder="กรอกอีเมลของคุณ">
-                            </div>
-                            
-                            
-                            <div class="form-group">
-                                <label for="signup-password">รหัสผ่าน</label>
-                                <input type="password" class="form-control" id="signup-password" placeholder="กรอกรหัสผ่านของคุณ">
-                            </div>
+                                <label for="registerEmail">Email:</label>
+                                <input type="email" id="registerEmail" name="registerEmail" required>
 
-                            <div class="form-group">
-                                <label for="signup-confirm-password">ยืนยันรหัสผ่าน</label>
-                                <input type="password" class="form-control" id="signup-confirm-password" placeholder="กรอกรหัสผ่านอีกครั้ง">
-                            </div>
-                            
-                            <button type="submit" class="btn btn-primary">สมัคร</button>
-                            
-                            </div>
-                        </form>
+                                <label for="registerPassword">Password:</label>
+                                <input type="password" id="registerPassword" name="registerPassword" required>
+
+                                <label for="confirmPassword">Confirm Password:</label>
+                                <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+                                <button type="button" class="btn btn-primary" onclick="register()">Register</button>
+                            </form>
+                            <p>Already have an account? <a href="#" onclick="showLoginForm()">Login here</a></p>
+                        </div>
+
+                        <div id="forgot-password-container" style="display: none;">
+                            <h2>Forgot Password</h2>
+                            <form id="forgotPasswordForm">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required>
+
+                                <button type="button" class="btn btn-primary" onclick="sendResetEmail()">Reset Password</button>
+                            </form>
+                            <p>Remembered your password? <a href="#" onclick="showLoginForm()">Login here</a></p>
+                        </div>
+
+                        <div id="reset-password-container" style="display: none;">
+                            <h2>Reset Password</h2>
+                            <form id="resetPasswordForm">
+                                <label for="newPassword">New Password:</label>
+                                <input type="password" id="newPassword" name="newPassword" required>
+
+                                <label for="confirmNewPassword">Confirm New Password:</label>
+                                <input type="password" id="confirmNewPassword" name="confirmNewPassword" required>
+
+                                <button type="button" class="btn btn-primary" onclick="resetPassword()">Reset Password</button>
+                            </form>
+                            <p>Remember your password? <a href="index.html">Login here</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Topbar End -->
 
 
     <!-- Navbar Start -->
@@ -717,6 +693,8 @@
     <script src="js/main.js"></script>
 
     <script src="java.js"></script>
+    <script src="script.js"></script>
+
 
     <script>
     function addToCart() {
