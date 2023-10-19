@@ -241,7 +241,7 @@
                         <div class="col-md-6 form-group">
                             <label>Country</label>
                             <select class="custom-select">
-                                <option selected>United States</option>
+                                <option selected>Thailand</option>
                                 <option>Afghanistan</option>
                                 <option>Albania</option>
                                 <option>Algeria</option>
@@ -249,11 +249,11 @@
                         </div>
                         <div class="col-md-6 form-group">
                             <label>City</label>
-                            <input class="form-control" type="text" placeholder="New York">
+                            <input class="form-control" type="text" placeholder="muang phayao">
                         </div>
                         <div class="col-md-6 form-group">
                             <label>State</label>
-                            <input class="form-control" type="text" placeholder="New York">
+                            <input class="form-control" type="text" placeholder="-">
                         </div>
                         <div class="col-md-6 form-group">
                             <label>ZIP Code</label>
@@ -367,23 +367,23 @@
                     <div class="bg-light p-30">
                         <div class="form-group">
                             <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="payment" id="paypal">
+                                <input type="radio" class="custom-control-input" name="payment" id="paypal" value="Paypal">
                                 <label class="custom-control-label" for="paypal">Paypal</label>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="payment" id="directcheck">
+                                <input type="radio" class="custom-control-input" name="payment" id="directcheck" value="Bank Transfer">
                                 <label class="custom-control-label" for="directcheck">Bank Transfer</label>
                             </div>
                         </div>
                         <div class="form-group mb-4">
                             <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="payment" id="banktransfer">
+                                <input type="radio" class="custom-control-input" name="payment" id="banktransfer" value="Cash">
                                 <label class="custom-control-label" for="banktransfer">Cash</label>
                             </div>
-                        </div>
-                        <button class="btn btn-block btn-primary font-weight-bold py-3">Place Order</button>
+                        </div>                        
+                        <button class="btn btn-block btn-primary font-weight-bold py-3" onclick="confirmOrder()">Place Order</button>
                     </div>
                 </div>
             </div>
@@ -467,6 +467,22 @@
             }
             return subtotal;
         }
+
+    //confirmOrder
+    function confirmOrder() {
+        const confirm = window.confirm("Confirm the order?"); // Display a confirmation dialog
+
+        if (confirm) {
+            // Send the order command to the server or perform any other desired actions here
+            alert("Order successfully placed"); // Display a success alert
+            localStorage.clear(); // Clear all data from Local Storage
+            window.location.href = "index.html"; // Redirect to the "index.html" page
+        } else {
+            alert("Order canceled"); // Display a cancellation alert if canceled
+        }
+    }
+
+
     
         // อัปเดตค่า cart subtotal และ total
         function updateCartSubtotal() {
